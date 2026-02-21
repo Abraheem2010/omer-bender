@@ -6,18 +6,7 @@ const db = require('./db');
 const app = express();
 app.use(cors());
 app.use(express.json());
-/* =======================
-   DATABASE (BEST PER STAGE)
-======================= */
-db.serialize(() => {
-  db.run(`
-    CREATE TABLE IF NOT EXISTS records (
-      stage INTEGER PRIMARY KEY,
-      name TEXT NOT NULL,
-      time REAL NOT NULL
-    )
-  `);
-});
+
 
 /* =======================
    API ROUTES
